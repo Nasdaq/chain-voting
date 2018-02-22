@@ -9,8 +9,8 @@ import com.chain.http.Client;
 import com.chain.signing.HsmSigner;
 
 public class VotingCommission {
-  private static final String BLOCKCHAIN_URL = "https://aviete.nadqchain.com";
-  private static final String BLOCKCHAIN_TOKEN = null;
+  public static final String BLOCKCHAIN_URL = "https://aviete.nadqchain.com";
+  public static final String BLOCKCHAIN_TOKEN = null;
 
   public static void main(String[] args) throws ChainException {
     final Client client = new Client(BLOCKCHAIN_URL, BLOCKCHAIN_TOKEN);
