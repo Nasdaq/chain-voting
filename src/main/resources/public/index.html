@@ -1,0 +1,37 @@
+<html ng-app="chain">
+<head>
+    <title>Hello</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js" type="text/javascript"></script>
+    <script>
+        angular.module('chain', [])
+         .controller('Chain', function ($scope, $http) {
+           $http.get("http://localhost:8080/responses")
+           .then(function(response) {
+               $scope.responses = response.data;
+             });
+          });
+    </script>
+</head>
+
+<body>
+<div ng-controller="Chain">
+    <p><b>Unspent Outputs</b></p>
+
+    <table>
+        <tr>
+            <th><b>Account</b></th>
+            <th><b>Asset</b></th>
+            <th><b>Amount</b></th>
+            <th><b>Purpose</b></th>
+        </tr>
+        <tr ng-repeat="response in responses">
+            <td>{{ response.account }}</td>
+            <td>{{ response.asset  }}</td>
+            <td>{{ response.amount  }}</td>
+            <td>{{ response.purpose  }}</td>
+        </tr>
+    </table>
+
+</div>
+</body>
+</html>
